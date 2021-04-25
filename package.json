@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "compile": "solcjs --bin --abi -o contracts/build contracts/SimpleGetterSetterUint256.sol",
-    "deploy": "ts-node scripts/deployGetterSetter.ts",
+    "compile-all": "npm run compile-getter-setter && npm run compile-fallback",
+    "compile-getter-setter": "solcjs --bin --abi -o contracts/build contracts/SimpleGetterSetterUint256.sol",
+    "compile-fallback": "solcjs --bin --abi -o contracts/build contracts/Fallback.sol",
+    "deploy-getter-setter": "ts-node scripts/deployContract.ts 'rinkeby'",
+    "deploy-fallback": "ts-node scripts/deployContract.ts 'kovan'",
     "get256": "ts-node scripts/getUint256.ts"
   },
   "dependencies": {
