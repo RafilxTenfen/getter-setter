@@ -30,6 +30,7 @@ DATABASE_TIMEOUT='...'
 CHAINLINK_DEV='...'
 FEATURE_EXTERNAL_INITIATORS='...'
 RINKEBY_RPC='...'
+KOVAN_RPC='...'
 
 # variables for the external initiator
 EI_DATABASEURL='...'
@@ -113,3 +114,4 @@ $~ sh generate-jobspec-EI.sh
 - Now you can send LINK to any address in the kovan network and it will trigger the tasks to write at the Getter Setter contract address in the rinkeby
 > It was made this way to watch the smartcontract that ChainLink has in the kovan network `0xa36085F69e2889c224210F603D836748e7dC0088`, it's probable that exist a better way to do it, but using just a contract like the `Fallback.sol` and send LINK to the contract address in the Kovan, I wasn't able to read the amount of LINK sent, it could be done sending Ether and reading the amount of ether sent to the contract and emit a Event to trigger the External initiator if pointed to the Fallback contract address.
 
+- Deploy the Fallback smartcontract to kovan

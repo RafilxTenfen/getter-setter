@@ -19,7 +19,7 @@ export function getRPC(blockchain: BlockchianType): string {
   if (blockchain == 'rinkeby') {
     return process.env.RINKEBY_RPC;
   }
-  return process.env.RINKEBY_RPC;
+  return process.env.KOVAN_RPC;
 }
 
 function getContractBuildPath(blockchain: BlockchianType): string {
