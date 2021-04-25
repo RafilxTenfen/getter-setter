@@ -1,3 +1,4 @@
+
 {
   "name": "EI Write rinkeby GetterSetter",
   "initiators": [
@@ -29,9 +30,10 @@
     {
       "type": "ethtx",
       "params": {
-        "address": "0x7519dDC42722e5d83FcB7804155c80E49Bb7C452",
+        "address": "0x20e9f13B5a86b6d24a5A6deF23E30c19D7f18fc9",
         "functionSelector": "setUint256(uint256)"
       }
     }
   ]
 }
+
