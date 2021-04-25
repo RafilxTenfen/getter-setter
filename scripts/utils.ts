@@ -4,10 +4,10 @@ config({ path: '.env' });
 
 export type BlockchianType = 'rinkeby' | 'kovan';
 
-const CONTRACT_GETTER_SETTER_ADDR_ENV = './getterSetterContractAddress.env';
+const CONTRACT_ADDR_ENV = './getterSetterContractAddress.env';
 const CONTRACT_FALLBACK_ADDR_ENV = './fallbackContractAddress.env';
 const CONTRACTS_ADDR_ENV = {
-  rinkeby: CONTRACT_GETTER_SETTER_ADDR_ENV,
+  rinkeby: CONTRACT_ADDR_ENV,
   kovan: CONTRACT_FALLBACK_ADDR_ENV
 }
 
@@ -53,18 +53,18 @@ function readFileAsync(fileName: string): Promise<string> {
   });
 }
 
-export function writeContractAddrEnv(blockchain: BlockchianType) {
-  const contractAddress = CONTRACTS_ADDR_ENV[blockchain];
-  writeFile(CONTRACT_GETTER_SETTER_ADDR_ENV, `GETTER_SETTER_CONTRACT_ADDRESS=${contractAddress}`, (err) => {
+export function writeContractAddrEnv(blockchain: BlockchianType, contractAddress: string) {
+  const CONTRACT_ADDR_ENV = CONTRACTS_ADDR_ENV[blockchain];
+  writeFile(CONTRACT_ADDR_ENV, `GETTER_SETTER_CONTRACT_ADDRESS=${contractAddress}`, (err) => {
     if (err) {
       console.log(err);
     }
-    console.log(`Wrote contract address: ${contractAddress} to file ${CONTRACT_GETTER_SETTER_ADDR_ENV}`);
+    console.log(`Wrote contract address: ${contractAddress} to file ${CONTRACT_ADDR_ENV}`);
     return;
   });
 }
 
 export function getGetterSetterContractAddress(): string {
-  config({ path: CONTRACT_GETTER_SETTER_ADDR_ENV });
+  config({ path: CONTRACT_ADDR_ENV });
   return process.env.GETTER_SETTER_CONTRACT_ADDRESS;
 }
