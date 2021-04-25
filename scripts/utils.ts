@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs';
 import { config } from 'dotenv'
 config({ path: '.env' });
 
-const CONTRACT_ADDR_ENV = './contractAddress.env';
+const CONTRACT_ADDR_ENV = './getterSetterContractAddress.env';
 const CONTRACT_BUILD_PATH = './contracts/build/contracts_SimpleGetterSetterUint256_sol_SimpleGetterSetterUint256';
 
 export function getWebSocketAddr(): string {
