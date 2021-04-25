@@ -1,0 +1,37 @@
+{
+  "name": "EI Write rinkeby GetterSetter",
+  "initiators": [
+    {
+      "type": "external",
+      "params": {
+        "name": "rafilx-chainlink-ei",
+        "body": {
+          "endpoint": "eth-kovan-ei",
+          "addresses": [
+            "0xa36085F69e2889c224210F603D836748e7dC0088"
+          ]
+        }
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "type": "copy",
+      "params": {
+        "copyPath": [
+          "data"
+        ]
+      }
+    },
+    {
+      "type": "ethuint256"
+    },
+    {
+      "type": "ethtx",
+      "params": {
+        "address": "0x7519dDC42722e5d83FcB7804155c80E49Bb7C452",
+        "functionSelector": "setUint256(uint256)"
+      }
+    }
+  ]
+}

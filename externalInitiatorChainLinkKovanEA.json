@@ -1,0 +1,22 @@
+{
+  "name": "EI Jobspec FallBack",
+  "initiators": [
+    {
+      "type": "external",
+      "params": {
+        "name": "rafilx-chainlink-ei",
+        "body": {
+          "endpoint": "eth-kovan-ei",
+          "addresses": [
+            "0x20e9f13B5a86b6d24a5A6deF23E30c19D7f18fc9"
+          ]
+        }
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "type": "testexternaladapter"
+    }
+  ]
+}
