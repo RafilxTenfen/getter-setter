@@ -1,1 +1,1 @@
-docker-compose --file postgres.docker-compose.yml up -d
+docker-compose --file docker/postgres.docker-compose.yml up --build -d

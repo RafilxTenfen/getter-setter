@@ -5,6 +5,9 @@ services:
 
   db:
     image: postgres
+    build:
+      context: ./
+      dockerfile: postgres.dockerfile
     restart: always
     ports:
       - 5432:5432
@@ -18,5 +21,4 @@ services:
     restart: always
     ports:
       - 8080:8080
-
 
