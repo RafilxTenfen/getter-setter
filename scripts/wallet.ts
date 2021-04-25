@@ -3,7 +3,6 @@ import { AddedAccount } from 'web3-core';
 import { wallets } from './wallet.secret';
 
 export class Wallet {
-
   publicAddress: string;
   privateKey: string;
   password: string;
@@ -40,6 +39,6 @@ export class Wallet {
 
 }
 
-export function getRinkebyWallet(): Wallet {
-  return new Wallet(wallets.rinkeby.publicAddress, wallets.rinkeby.privateKey, wallets.rinkeby.password);
+export function getWallet(blockchain: 'rinkeby' | 'kovan'): Wallet {
+  return new Wallet(wallets[blockchain].publicAddress, wallets[blockchain].privateKey, wallets[blockchain].password);
 }
