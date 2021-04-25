@@ -1,0 +1,8 @@
+*node_modules
+.api
+.password
+scripts/wallet.secret.ts
+contractAddress.env
+.env
+contracts/build/*
+ei.conf
