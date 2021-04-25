@@ -4,5 +4,4 @@
 scripts/wallet.secret.ts
 contractAddress.env
 .env
-contracts/build/*
 ei.conf
