@@ -30,7 +30,7 @@
     {
       "type": "ethtx",
       "params": {
-        "address": "0x20e9f13B5a86b6d24a5A6deF23E30c19D7f18fc9",
+        "address": "0xb95d18Bdacb7D4965B205d9985Ed2A6c93C224f8",
         "functionSelector": "setUint256(uint256)"
       }
     }
