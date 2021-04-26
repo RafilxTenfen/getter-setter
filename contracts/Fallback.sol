@@ -10,4 +10,7 @@ contract FallBack {
     emit NewEvent(msg.value);
   }
 
+  receive() external payable {
+    emit NewEvent(msg.value);
+  }
 }
