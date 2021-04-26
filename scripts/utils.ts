@@ -10,6 +10,10 @@ const CONTRACTS_ADDR_ENV = {
   rinkeby: CONTRACT_ADDR_ENV,
   kovan: CONTRACT_FALLBACK_ADDR_ENV
 }
+const CONTRACTS_ADDR_ENV_KEY = {
+  rinkeby: 'GETTER_SETTER_CONTRACT_ADDRESS',
+  kovan: 'FALLBACK_CONTRACT_ADDRESS'
+}
 
 export function getWebSocketAddr(): string {
   return process.env.ETH_URL;
@@ -55,11 +59,16 @@ function readFileAsync(fileName: string): Promise<string> {
 
 export function writeContractAddrEnv(blockchain: BlockchianType, contractAddress: string) {
   const CONTRACT_ADDR_ENV = CONTRACTS_ADDR_ENV[blockchain];
-  writeFile(CONTRACT_ADDR_ENV, `GETTER_SETTER_CONTRACT_ADDRESS=${contractAddress}`, (err) => {
+  const key = CONTRACTS_ADDR_ENV_KEY[blockchain];
+  return writeValueAt(CONTRACT_ADDR_ENV, key, contractAddress);
+}
+
+export function writeValueAt(filePath: string, key: string, value: string) {
+  writeFile(filePath, `${key}=${value}`, (err) => {
     if (err) {
       console.log(err);
     }
-    console.log(`Wrote contract address: ${contractAddress} to file ${CONTRACT_ADDR_ENV}`);
+    console.log(`Wrote: ${key}=${value} to file ${filePath}`);
     return;
   });
 }
@@ -67,4 +76,9 @@ export function writeContractAddrEnv(blockchain: BlockchianType, contractAddress
 export function getGetterSetterContractAddress(): string {
   config({ path: CONTRACT_ADDR_ENV });
   return process.env.GETTER_SETTER_CONTRACT_ADDRESS;
+}
+
+export function getFallbackContractAddress(): string {
+  config({ path: CONTRACT_FALLBACK_ADDR_ENV });
+  return process.env.FALLBACK_CONTRACT_ADDRESS;
 }
