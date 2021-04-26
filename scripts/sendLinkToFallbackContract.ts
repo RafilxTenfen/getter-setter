@@ -17,7 +17,7 @@ wallet.getAddedAccount(eth);
 
 eth.getGasPrice((err, gasPrice) => {
   const contractData = new eth.Contract(abi, chainLinkTokenAddress, { from: wallet.publicAddress});
-  const linkValue = new BN('487000000000000000');
+  const linkValue = new BN('4870000000000000');
   contractData.methods.transfer(getFallbackContractAddress(), linkValue).send({
     gas: GAS_LIMIT,
     gasPrice: gasPrice,
