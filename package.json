@@ -10,10 +10,13 @@
     "compile-fallback": "solcjs --bin --abi -o contracts/build contracts/Fallback.sol",
     "deploy-getter-setter": "ts-node scripts/deployContract.ts 'rinkeby'",
     "deploy-fallback": "ts-node scripts/deployContract.ts 'kovan'",
-    "get256": "ts-node scripts/getUint256.ts"
+    "get256": "ts-node scripts/getUint256.ts",
+    "send-link": "ts-node scripts/sendLinkToFallbackContract.ts"
   },
   "dependencies": {
+    "bn.js-typings": "^1.0.1",
     "dotenv": "^8.2.0",
+    "erc-20-abi": "^1.0.0",
     "web3": "^1.3.5"
   },
   "devDependencies": {
